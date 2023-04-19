@@ -1,0 +1,27 @@
+-- Create a Guitar Stor Database
+
+
+CREATE TABLE guitar_shack (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, shelf INTEGER, cost INTEGER);
+
+
+INSERT INTO guitar_shack VALUES (1, "guitar picks soft", 50, 1, 1);
+INSERT INTO guitar_shack VALUES (2, "guitar picks medium", 60, 1, 1);
+INSERT INTO guitar_shack VALUES (3, "guitar picks hard", 60, 1, 1);
+INSERT INTO guitar_shack VALUES (4, "guitar strings nylon", 15, 3, 25);
+INSERT INTO guitar_shack VALUES (5, "guitar strings steel extra light", 15, 3, 18);
+INSERT INTO guitar_shack VALUES (6, "guitar strings steel light", 15, 3, 20);
+INSERT INTO guitar_shack VALUES (7, "guitar strings steel medium", 12, 3, 23);
+INSERT INTO guitar_shack VALUES (8, "guitar strings steel heavy", 12, 3, 25);
+INSERT INTO guitar_shack VALUES (9, "guitar strap cloth", 5, 2, 25);
+INSERT INTO guitar_shack VALUES (10, "guitar strap leather", 8, 2, 35);
+INSERT INTO guitar_shack VALUES (11, "lanikai uklele", 2, 5, 90);
+INSERT INTO guitar_shack VALUES (12, "beginner ukulele", 5, 5, 45);
+INSERT INTO guitar_shack VALUES (13, "beginner guitar acoustic", 3, 4, 180);
+INSERT INTO guitar_shack VALUES (14, "beginner guitar electric", 6, 6, 250);
+INSERT INTO guitar_shack VALUES (15, "authentic spanish classical guitar", 1, 1, 35000);
+
+--display database ordered by price
+SELECT * FROM guitar_shack ORDER BY cost;
+
+--display total cost per shelf
+SELECT shelf, SUM(cost) FROM guitar_shack GROUP BY shelf
