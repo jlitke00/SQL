@@ -220,11 +220,11 @@ INSERT INTO countries(name,population,percent_one_year_change,population_change,
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Antigua and Barbuda',97929,0.84,811,223,440,0,2.00,34.00,0);
 
 
-Figure out Average Populations of countires with less than 2 million citizens.
+--Figure out Average Populations of countires with less than 2 million citizens.
 SELECT name, AVG(population) AS avg_population FROM countries GROUP BY name HAVING avg_population <2000000;
 
-Group countries by population amounts in increments that are greater than 2 million, 1 million, 5 hundered thousand and 2 hundred thousand.
+--Group countries by population amounts in increments that are greater than 2 million, 1 million, 5 hundered thousand and 2 hundred thousand.
 SELECT COUNT (*), CASE WHEN population >2000000 THEN "greater_than_2000000" WHEN population >1000000 THEN "greater_than_1000000" WHEN population >500000 THEN "greater_than_500000" WHEN population >200000 THEN "greater_than_200000" ELSE "less_than_200000" END AS population_bracket FROM countries GROUP BY population_bracket;
 
-Show populations stats from the selected countires: United States, Bahamas, France, China, Guam and Mexico.
+--Show populations stats from the selected countires: United States, Bahamas, France, China, Guam and Mexico.
 SELECT * FROM countries WHERE name IN ("United States", "Bahamas", "France", "China", "Guam", "Mexico");
