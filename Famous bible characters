@@ -1,0 +1,34 @@
+/* Create table about the people and what they do here */
+CREATE TABLE bible_characters (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+INSERT INTO bible_characters (name) VALUES ("moses");
+INSERT INTO bible_characters (name) VALUES ("daniel");
+INSERT INTO bible_characters (name) VALUES ("paul" );
+INSERT INTO bible_characters (name) VALUES ("john");
+INSERT INTO bible_characters (name) VALUES ("john the baptist");
+INSERT INTO bible_characters (name) VALUES ("abraham");
+INSERT INTO bible_characters (name) VALUES ("peter");
+INSERT INTO bible_characters (name) VALUES ("esther");
+INSERT INTO bible_characters (name) VALUES ("joseph");
+INSERT INTO bible_characters (name) VALUES ("isaiah");
+
+
+
+CREATE TABLE purpose_in_bible (id INTEGER PRIMARY KEY AUTOINCREMENT, character_id INTEGER, prophet TEXT, apostle TEXT, book TEXT);
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (1, "yes", "no", "genesis");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (2, "yes", "no", "daniel");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (3, "yes", "yes", "romans");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (4, "yes", "yes", "revelations");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (5, "yes", "no", "john");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (6, "no", "no", "genesis");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (7, "yes", "yes", "2_peter");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (8, "no", "no", "esther");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (9, "yes", "no", "genesis");
+INSERT INTO purpose_in_bible (character_id, prophet, apostle, book) VALUES (10, "yes", "no", "isaiah");
+
+/* show all characters by prophet,apostle, and book sort by name alphabeticaly ascending*/
+
+SELECT bible_characters.name, purpose_in_bible.prophet, purpose_in_bible.apostle, purpose_in_bible.book FROM bible_characters LEFT OUTER JOIN purpose_in_bible ON bible_characters.id = purpose_in_bible.character_id ORDER BY name asc;
+
+/*show all characters by book sort by book name alphebetically ascending*/
+
+SELECT bible_characters.name, purpose_in_bible.book FROM bible_characters LEFT OUTER JOIN purpose_in_bible ON bible_characters.id = purpose_in_bible.character_id ORDER BY book asc;
