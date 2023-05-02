@@ -32,3 +32,5 @@ SELECT bible_characters.name, purpose_in_bible.prophet, purpose_in_bible.apostle
 /*show all characters by book sort by book name alphebetically ascending*/
 
 SELECT bible_characters.name, purpose_in_bible.book FROM bible_characters LEFT OUTER JOIN purpose_in_bible ON bible_characters.id = purpose_in_bible.character_id ORDER BY book asc;
+
+SELECT bible_characters.name, purpose_in_bible.prophet, purpose_in_bible.apostle, purpose_in_bible.book FROM bible_characters LEFT OUTER JOIN purpose_in_bible ON bible_characters.id = purpose_in_bible.character_id WHERE apostle = "no" ORDER BY name asc;
